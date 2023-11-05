@@ -20,6 +20,9 @@ const checkForRunningAds = () => {
   } else {
    state.isAdRunning = true;
    state.muted = true;
+   const videoDuration = videoPlayback.duration;
+   console.log('Video duration: ' + videoDuration);
+   videoPlayback.currentTime = videoDuration;
    videoPlayback.muted = true;
    return;
   }
