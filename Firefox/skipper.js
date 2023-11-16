@@ -4,8 +4,8 @@ let state = {
 };
 const adCheckingInterval = 1000;
 const videoPlaybackClassName = '.video-stream.html5-main-video';
-const skipAdClassName = '.ytp-ad-image';
-const skipButtonClassName = '.ytp-ad-skip-button.ytp-button';
+const skipAdClassName = '.ytp-ad-preview-image-modern';
+const skipButtonClassName = '.ytp-ad-skip-button-modern.ytp-button';
 
 const checkForRunningAds = () => {
  //finding skip add elements in dom to know if a ad is running
@@ -20,10 +20,10 @@ const checkForRunningAds = () => {
   } else {
    state.isAdRunning = true;
    state.muted = true;
+   videoPlayback.muted = true;
    const videoDuration = videoPlayback.duration;
    console.log('Video duration: ' + videoDuration);
    videoPlayback.currentTime = videoDuration;
-   videoPlayback.muted = true;
    return;
   }
  } else if (button && state.isAdRunning) {
